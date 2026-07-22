@@ -64,7 +64,8 @@ const serviceIcons: Record<string, ReactNode> = {
 
 
 export default function ServicesPage() {
-  const { servicesPage, servicesHighlights, contact } = useContent();
+  const { servicesPage, servicesHighlights, contact, pageHeaders } = useContent();
+  const hdr = pageHeaders.services;
   return (
     <div className="bg-[#0a1628] min-h-screen text-white">
       <Navbar />
@@ -74,18 +75,17 @@ export default function ServicesPage() {
         <div className="absolute inset-0 bg-linear-to-b from-cyan-500/5 to-transparent pointer-events-none" />
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <span className="inline-block px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold mb-6">
-            25 Services
+            {hdr.badge}
           </span>
           <h1 className="text-5xl md:text-6xl font-extrabold mb-6">
-            Professional{" "}
+            {hdr.titleA}{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-blue-500">
-              Design & Marketing
+              {hdr.titleHighlight}
             </span>
-            <br />Services
+            {hdr.titleAfter ? <><br />{hdr.titleAfter}</> : null}
           </h1>
           <p className="text-gray-400 text-xl max-w-3xl mx-auto leading-relaxed mb-8">
-            Everything your business needs — from graphic design to digital marketing,
-            documentation, travel, and beyond.
+            {hdr.desc}
           </p>
 
           {/* Highlights */}

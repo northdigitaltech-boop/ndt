@@ -3,6 +3,14 @@
 
 export type Dict = Record<string, string>;
 
+export interface PageHeader {
+  badge: string;
+  titleA: string;
+  titleHighlight: string;
+  titleAfter: string;
+  desc: string;
+}
+
 export interface SiteContent {
   translations: { en: Dict; ms: Dict };
   brand: {
@@ -17,6 +25,21 @@ export interface SiteContent {
     phone: string;
     whatsapp: string; // digits only, international format
     address: string;
+  };
+  about: {
+    badge: string;
+    titleA: string;
+    titleHighlight: string;
+    paragraphs: string[];
+    names: string[];
+    highlights: { label: string; desc: string }[];
+  };
+  pageHeaders: {
+    services: PageHeader;
+    packages: PageHeader;
+    team: PageHeader;
+    work: PageHeader;
+    careers: PageHeader;
   };
   heroStats: { value: string }[];
   servicesHome: { title: string; color: string; border: string }[];
@@ -238,6 +261,62 @@ export const defaultContent: SiteContent = {
     phone: "+601137862785 / 03326765962",
     whatsapp: "601137862785",
     address: "Jalan Abdullah Ibrahim, JB Central, Johor Bahru, Malaysia",
+  },
+
+  about: {
+    badge: "About Us",
+    titleA: "Who We",
+    titleHighlight: "Are",
+    paragraphs: [
+      "We started with a small team consisting of three experts, and because of the success and satisfaction of our customers with the quality of service, we grew into a large team that includes experts in many fields.",
+      "We welcome all new ideas and turn them into reality through professional solutions. Thanks to our previous experiences, we gained great experience in the tech field. We will stay with you until you enter the market and create your own touch on the Internet through your solution platform.",
+      "We offer you all the support, we want you to have peace of mind because we will be providing support for the long term. We look forward to contacting you to offer our best. We rely on quality in work and always strive to provide the best.",
+    ],
+    names: ["Shabbir Hussain", "Muhammad Ibrahim", "Shakir Hussain", "Muhammad Shahzaib"],
+    highlights: [
+      { label: "Innovation First", desc: "We welcome all new ideas and turn them into reality." },
+      { label: "Expert Team", desc: "A large team of experts in many fields working for you." },
+      { label: "Global Reach", desc: "Supporting clients to enter and scale across international markets." },
+      { label: "Quality Driven", desc: "We rely on quality in work and always strive to provide the best." },
+    ],
+  },
+
+  pageHeaders: {
+    services: {
+      badge: "25 Services",
+      titleA: "Professional",
+      titleHighlight: "Design & Marketing",
+      titleAfter: "Services",
+      desc: "Everything your business needs — from graphic design to digital marketing, documentation, travel, and beyond.",
+    },
+    packages: {
+      badge: "Pricing Plans",
+      titleA: "Transparent",
+      titleHighlight: "Pricing",
+      titleAfter: "",
+      desc: "No hidden fees. Choose the package that fits your needs and budget. Scale up anytime as your business grows.",
+    },
+    team: {
+      badge: "Our Team",
+      titleA: "Meet Our",
+      titleHighlight: "Experts",
+      titleAfter: "",
+      desc: "A passionate team of innovators, designers, and engineers dedicated to transforming your vision into reality.",
+    },
+    work: {
+      badge: "Portfolio",
+      titleA: "Our",
+      titleHighlight: "Work",
+      titleAfter: "",
+      desc: "Explore our portfolio of successful projects — each one a story of innovation, collaboration, and exceptional results.",
+    },
+    careers: {
+      badge: "Careers",
+      titleA: "Join Our",
+      titleHighlight: "Growing Team",
+      titleAfter: "",
+      desc: "Work remotely, grow professionally, and collaborate with international clients. Find your role below.",
+    },
   },
 
   heroStats: [{ value: "50+" }, { value: "30+" }, { value: "5+" }],

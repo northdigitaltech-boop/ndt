@@ -4,15 +4,18 @@ import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
 import GroupsIcon from "@mui/icons-material/Groups";
 import PublicIcon from "@mui/icons-material/Public";
 import VerifiedIcon from "@mui/icons-material/Verified";
+import { useContent } from "@/lib/ContentContext";
+import type { ReactNode } from "react";
 
-const highlights = [
-  { icon: <EmojiObjectsIcon />, label: "Innovation First", desc: "We welcome all new ideas and turn them into reality." },
-  { icon: <GroupsIcon />, label: "Expert Team", desc: "A large team of experts in many fields working for you." },
-  { icon: <PublicIcon />, label: "Global Reach", desc: "Supporting clients to enter and scale across international markets." },
-  { icon: <VerifiedIcon />, label: "Quality Driven", desc: "We rely on quality in work and always strive to provide the best." },
+const highlightIcons: ReactNode[] = [
+  <EmojiObjectsIcon key="0" />,
+  <GroupsIcon key="1" />,
+  <PublicIcon key="2" />,
+  <VerifiedIcon key="3" />,
 ];
 
 export default function AboutSection() {
+  const { about } = useContent();
   return (
     <section id="about" className="relative bg-[#07111f] py-28 px-6 overflow-hidden">
       {/* Background glows */}
@@ -29,12 +32,12 @@ export default function AboutSection() {
           className="text-center mb-14"
         >
           <span className="inline-block px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold mb-4 tracking-widest uppercase">
-            About Us
+            {about.badge}
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-            Who We{" "}
+            {about.titleA}{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-blue-500">
-              Are
+              {about.titleHighlight}
             </span>
           </h2>
         </motion.div>
@@ -48,18 +51,14 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-gray-300 text-lg leading-relaxed mb-6">
-              We started with a small team consisting of three experts, and because of the success and satisfaction of our customers with the quality of service, we grew into a large team that includes experts in many fields.
-            </p>
-            <p className="text-gray-300 text-lg leading-relaxed mb-6">
-              We welcome all new ideas and turn them into reality through professional solutions. Thanks to our previous experiences, we gained great experience in the tech field. We will stay with you until you enter the market and create your own touch on the Internet through your solution platform.
-            </p>
-            <p className="text-gray-300 text-lg leading-relaxed mb-6">
-              We offer you all the support, we want you to have peace of mind because we will be providing support for the long term. We look forward to contacting you to offer our best. We rely on quality in work and always strive to provide the best.
-            </p>
+            {about.paragraphs.map((para, idx) => (
+              <p key={idx} className="text-gray-300 text-lg leading-relaxed mb-6">
+                {para}
+              </p>
+            ))}
 
             <div className="flex flex-wrap gap-3 mt-8">
-              {["Shabbir Hussain", "Muhammad Ibrahim", "Shakir Hussain", "Muhammad Shahzaib"].map((name) => (
+              {about.names.map((name) => (
                 <span key={name} className="px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold">
                   {name}
                 </span>
@@ -69,7 +68,7 @@ export default function AboutSection() {
 
           {/* Highlights grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {highlights.map((h, i) => (
+            {about.highlights.map((h, i) => (
               <motion.div
                 key={h.label}
                 initial={{ opacity: 0, y: 30 }}
@@ -79,7 +78,7 @@ export default function AboutSection() {
                 className="bg-[#0a1628]/80 border border-cyan-500/15 hover:border-cyan-500/40 rounded-2xl p-6 flex flex-col gap-3 shadow-lg hover:shadow-cyan-500/10 hover:shadow-xl transition-all duration-300 group"
               >
                 <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors duration-300">
-                  {h.icon}
+                  {highlightIcons[i % highlightIcons.length]}
                 </div>
                 <h4 className="text-white font-bold text-lg">{h.label}</h4>
                 <p className="text-gray-400 text-sm leading-relaxed">{h.desc}</p>

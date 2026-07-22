@@ -18,7 +18,8 @@ interface FormData {
 }
 
 export default function CareersPage() {
-  const { jobs, contact } = useContent();
+  const { jobs, contact, pageHeaders } = useContent();
+  const hdr = pageHeaders.careers;
   const [selectedJob, setSelectedJob] = useState<(typeof jobs)[number] | null>(null);
   const [applyJob, setApplyJob] = useState<string>("");
   const [showForm, setShowForm] = useState(false);
@@ -86,12 +87,12 @@ export default function CareersPage() {
         <section className="relative py-20 px-6 text-center overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,211,238,0.07)_0%,transparent_70%)] pointer-events-none" />
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl mx-auto relative z-10">
-            <span className="inline-block px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold mb-4 tracking-widest uppercase">Careers</span>
+            <span className="inline-block px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold mb-4 tracking-widest uppercase">{hdr.badge}</span>
             <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-5">
-              Join Our{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-blue-500">Growing Team</span>
+              {hdr.titleA}{" "}
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-blue-500">{hdr.titleHighlight}</span>
             </h1>
-            <p className="text-gray-400 text-lg">Work remotely, grow professionally, and collaborate with international clients. Find your role below.</p>
+            <p className="text-gray-400 text-lg">{hdr.desc}</p>
           </motion.div>
         </section>
 

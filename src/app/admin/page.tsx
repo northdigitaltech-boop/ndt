@@ -8,6 +8,8 @@ const SECTION_LABELS: Record<string, string> = {
   translations: "Site Text (EN / MS)",
   brand: "Logo & Branding",
   contact: "Contact Info",
+  about: "About Us Section",
+  pageHeaders: "Page Headings",
   heroStats: "Hero Stats",
   servicesHome: "Services (Home)",
   servicesPage: "Services (Full Page)",
@@ -166,6 +168,15 @@ function FieldEditor({
     );
   }
   if (Array.isArray(value)) {
+    // array of objects → full sub-editor
+    if (value.length > 0 && typeof value[0] === "object" && value[0] !== null) {
+      return (
+        <div className="py-2">
+          <div className="text-xs text-gray-500 font-semibold mb-2">{label}</div>
+          <ArrayEditor items={value as AnyObj[]} onChange={onChange} />
+        </div>
+      );
+    }
     // array of strings → one per line
     return (
       <div className="py-1">
@@ -176,6 +187,19 @@ function FieldEditor({
           rows={Math.min(Math.max(value.length + 1, 2), 12)}
           className="w-full bg-[#0a1628] border border-white/10 focus:border-cyan-500 rounded-lg px-3 py-2 text-sm text-white outline-none"
         />
+      </div>
+    );
+  }
+  // nested object → render its fields inside a bordered box
+  if (value !== null && typeof value === "object") {
+    return (
+      <div className="py-2">
+        <div className="text-xs text-cyan-400 font-bold mb-2 uppercase tracking-wide">{label}</div>
+        <div className="bg-[#0d1f35] border border-white/10 rounded-xl p-4">
+          {Object.entries(value as AnyObj).map(([k, v]) => (
+            <FieldEditor key={k} label={k} value={v} onChange={(nv) => onChange({ ...(value as AnyObj), [k]: nv })} />
+          ))}
+        </div>
       </div>
     );
   }

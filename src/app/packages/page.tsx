@@ -8,7 +8,8 @@ import { useContent } from "@/lib/ContentContext";
 
 
 export default function PackagesPage() {
-  const { comparison } = useContent();
+  const { comparison, pageHeaders } = useContent();
+  const hdr = pageHeaders.packages;
   return (
     <div className="bg-[#0a1628] min-h-screen text-white">
       <Navbar />
@@ -17,17 +18,17 @@ export default function PackagesPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent pointer-events-none" />
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <span className="inline-block px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold mb-6">
-            Pricing Plans
+            {hdr.badge}
           </span>
           <h1 className="text-5xl md:text-6xl font-extrabold mb-6">
-            Transparent{" "}
+            {hdr.titleA}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-              Pricing
+              {hdr.titleHighlight}
             </span>
+            {hdr.titleAfter ? <><br />{hdr.titleAfter}</> : null}
           </h1>
           <p className="text-gray-400 text-xl max-w-3xl mx-auto leading-relaxed">
-            No hidden fees. Choose the package that fits your needs and budget.
-            Scale up anytime as your business grows.
+            {hdr.desc}
           </p>
         </motion.div>
       </section>
