@@ -35,7 +35,7 @@ const footerLinks = {
 
 export default function Footer() {
   const { t } = useLang();
-  const { contact } = useContent();
+  const { contact, brand } = useContent();
   return (
     <footer className="bg-[#050d1a] border-t border-cyan-500/10">
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -49,8 +49,8 @@ export default function Footer() {
                 className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-cyan-400 shadow-lg shadow-cyan-500/30 bg-white shrink-0"
               >
                 <Image
-                  src="/ndt-logo.png"
-                  alt="N Digital Tech"
+                  src={brand.logo}
+                  alt={`${brand.name1}${brand.name2}${brand.name3}`}
                   fill
                   sizes="64px"
                   className="object-cover"
@@ -58,11 +58,11 @@ export default function Footer() {
               </motion.div>
               <div>
                 <div className="text-xl font-bold">
-                  <span className="text-white">North</span>
-                  <span className="text-cyan-400">Digital</span>
-                  <span className="text-white"> Tech</span>
+                  <span className="text-white">{brand.name1}</span>
+                  <span className="text-cyan-400">{brand.name2}</span>
+                  <span className="text-white">{brand.name3}</span>
                 </div>
-                <div className="text-xs text-gray-500 tracking-widest uppercase">NDT</div>
+                <div className="text-xs text-gray-500 tracking-widest uppercase">{brand.tagline}</div>
               </div>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">

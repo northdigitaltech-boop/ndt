@@ -7,6 +7,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import LanguageIcon from "@mui/icons-material/Language";
 import { useLang } from "@/lib/LangContext";
+import { useContent } from "@/lib/ContentContext";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -22,6 +23,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { lang, setLang, t } = useLang();
+  const { brand } = useContent();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -70,8 +72,8 @@ export default function Navbar() {
             />
             <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-cyan-400 shadow-lg shadow-cyan-500/40 shrink-0 bg-white">
               <Image
-                src="/ndt-logo.png"
-                alt="N Digital Tech"
+                src={brand.logo}
+                alt={`${brand.name1}${brand.name2}${brand.name3}`}
                 fill
                 sizes="56px"
                 className="object-cover group-hover:scale-110 transition-transform duration-300"
@@ -84,9 +86,9 @@ export default function Navbar() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-xl font-bold hidden sm:block"
           >
-            <span className="text-white">North</span>
-            <span className="text-cyan-400">Digital</span>
-            <span className="text-white"> Tech</span>
+            <span className="text-white">{brand.name1}</span>
+            <span className="text-cyan-400">{brand.name2}</span>
+            <span className="text-white">{brand.name3}</span>
           </motion.span>
         </Link>
 

@@ -5,6 +5,13 @@ export type Dict = Record<string, string>;
 
 export interface SiteContent {
   translations: { en: Dict; ms: Dict };
+  brand: {
+    logo: string;
+    name1: string;
+    name2: string;
+    name3: string;
+    tagline: string;
+  };
   contact: {
     email: string;
     phone: string;
@@ -29,7 +36,7 @@ export interface SiteContent {
   comparison: { feature: string; starter: string; pro: string; enterprise: string }[];
   team: { name: string; role: string; bio: string; image: string; pos: string }[];
   values: { title: string; desc: string; color: string }[];
-  clients: { name: string; image: string }[];
+  clients: { name: string; image: string; link: string }[];
   projects: {
     title: string;
     category: string;
@@ -216,6 +223,14 @@ export const defaultContent: SiteContent = {
       footer_newsletter_placeholder: "Masukkan e-mel anda",
       footer_rights: "Hak cipta terpelihara.",
     },
+  },
+
+  brand: {
+    logo: "/ndt-logo.png",
+    name1: "North",
+    name2: "Digital",
+    name3: " Tech",
+    tagline: "NDT",
   },
 
   contact: {
@@ -446,16 +461,16 @@ export const defaultContent: SiteContent = {
   ],
 
   clients: [
-    { name: "Toppers Turf", image: "/1.png" },
-    { name: "Goodfair", image: "/2.png" },
-    { name: "Theese", image: "/3.png" },
-    { name: "Restoran Mamak S.S. Fatima", image: "/4.png" },
-    { name: "Amin Restaurant", image: "/5.png" },
-    { name: "Al Khalifa", image: "/6.png" },
-    { name: "Cythetic", image: "/7.png" },
-    { name: "Ain Restoran", image: "/8.png" },
-    { name: "La Familia Restaurant", image: "/9.png" },
-    { name: "AM Teras Padu Logistik", image: "/10.png" },
+    { name: "Toppers Turf", image: "/1.png", link: "" },
+    { name: "Goodfair", image: "/2.png", link: "" },
+    { name: "Theese", image: "/3.png", link: "" },
+    { name: "Restoran Mamak S.S. Fatima", image: "/4.png", link: "" },
+    { name: "Amin Restaurant", image: "/5.png", link: "" },
+    { name: "Al Khalifa", image: "/6.png", link: "" },
+    { name: "Cythetic", image: "/7.png", link: "" },
+    { name: "Ain Restoran", image: "/8.png", link: "" },
+    { name: "La Familia Restaurant", image: "/9.png", link: "" },
+    { name: "AM Teras Padu Logistik", image: "/10.png", link: "" },
   ],
 
   projects: [

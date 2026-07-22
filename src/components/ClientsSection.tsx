@@ -40,17 +40,25 @@ export default function ClientsSection() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.07, duration: 0.4 }}
               whileHover={{ y: -5, scale: 1.03 }}
-              className="bg-white rounded-2xl flex items-center justify-center hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 cursor-default aspect-square p-6"
+              className={`bg-white rounded-2xl flex items-center justify-center hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 aspect-square p-6 ${
+                client.link ? "cursor-pointer" : "cursor-default"
+              }`}
             >
-              <div className="relative w-full h-full">
-                <Image
-                  src={client.image}
-                  alt={client.name}
-                  fill
-                  sizes="250px"
-                  className="object-contain"
-                />
-              </div>
+              {client.link ? (
+                <a
+                  href={client.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${client.name}`}
+                  className="relative w-full h-full block"
+                >
+                  <Image src={client.image} alt={client.name} fill sizes="250px" className="object-contain" />
+                </a>
+              ) : (
+                <div className="relative w-full h-full">
+                  <Image src={client.image} alt={client.name} fill sizes="250px" className="object-contain" />
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

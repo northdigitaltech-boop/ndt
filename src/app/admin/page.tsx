@@ -6,6 +6,7 @@ import type { SiteContent } from "@/lib/siteContent";
 // ─── Section metadata ────────────────────────────────────────────────────────
 const SECTION_LABELS: Record<string, string> = {
   translations: "Site Text (EN / MS)",
+  brand: "Logo & Branding",
   contact: "Contact Info",
   heroStats: "Hero Stats",
   servicesHome: "Services (Home)",
