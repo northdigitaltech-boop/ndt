@@ -20,7 +20,7 @@ export default function Home() {
       <WorkingProcessSection />
       <PackagesSection />
       <AboutSection />
-      <TeamSection />
+      <TeamSection featuredOnly />
       <ClientsSection />
       <ContactSection />
       <Footer />

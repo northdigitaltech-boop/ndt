@@ -56,9 +56,10 @@ const defaultTeam = [
   },
 ];
 
-export default function TeamSection() {
+export default function TeamSection({ featuredOnly = false }: { featuredOnly?: boolean }) {
   const { t } = useLang();
   const { team = defaultTeam } = useContent();
+  const visibleTeam = featuredOnly ? team.filter((m) => m.showOnHome) : team;
   return (
     <section id="team" className="relative bg-[#07111f] py-28 px-6 overflow-hidden">
       {/* Background glow */}
@@ -88,7 +89,7 @@ export default function TeamSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {team.map((member, i) => (
+          {visibleTeam.map((member, i) => (
             <motion.div
               key={member.name}
               initial={{ opacity: 0, y: 40 }}

@@ -25,6 +25,7 @@ export interface SiteContent {
     phone: string;
     whatsapp: string; // digits only, international format
     address: string;
+    mapEmbed: string; // optional full Google Maps embed URL; if empty, map follows the address
   };
   about: {
     badge: string;
@@ -57,7 +58,7 @@ export interface SiteContent {
     features: string[];
   }[];
   comparison: { feature: string; starter: string; pro: string; enterprise: string }[];
-  team: { name: string; role: string; bio: string; image: string; pos: string }[];
+  team: { name: string; role: string; bio: string; image: string; pos: string; showOnHome: boolean }[];
   values: { title: string; desc: string; color: string }[];
   clients: { name: string; image: string; link: string }[];
   projects: {
@@ -261,6 +262,7 @@ export const defaultContent: SiteContent = {
     phone: "+601137862785 / 03326765962",
     whatsapp: "601137862785",
     address: "Jalan Abdullah Ibrahim, JB Central, Johor Bahru, Malaysia",
+    mapEmbed: "",
   },
 
   about: {
@@ -487,6 +489,7 @@ export const defaultContent: SiteContent = {
       bio: "A visionary leader driving the growth and strategic direction of NorthDigital Tech. As a passionate Software Engineer and entrepreneur, he specializes in web development, mobile applications, e-commerce, and digital solutions.",
       image: "/ceo.jpeg",
       pos: "object-center",
+      showOnHome: true,
     },
     {
       name: "Muhammad Ibrahim",
@@ -494,6 +497,7 @@ export const defaultContent: SiteContent = {
       bio: "Oversees operations and client success with a sharp business mindset. Committed to delivering excellence on every project.",
       image: "/team1.jpeg",
       pos: "object-top",
+      showOnHome: false,
     },
     {
       name: "Shakir Hussain",
@@ -501,6 +505,7 @@ export const defaultContent: SiteContent = {
       bio: "Builds fast, modern, and scalable websites with clean code. Transforms designs into seamless digital experiences.",
       image: "/shaker.jpeg",
       pos: "object-center",
+      showOnHome: false,
     },
     {
       name: "Huzaifa Sajjad",
@@ -508,6 +513,7 @@ export const defaultContent: SiteContent = {
       bio: "With 3+ years of experience, Huzaifa leads projects from concept to delivery with precision and passion. Skilled in full stack development, he bridges the gap between technical execution and client expectations — ensuring every product is delivered on time, on budget, and beyond expectations.",
       image: "/huzaifa.png",
       pos: "object-top",
+      showOnHome: false,
     },
     {
       name: "Fahad",
@@ -515,6 +521,7 @@ export const defaultContent: SiteContent = {
       bio: "A dedicated Full Stack Developer with 2+ years of experience building robust web applications from front to back. Fahad brings creativity and technical depth to every project, crafting seamless user experiences backed by solid, scalable code.",
       image: "/fahad.png",
       pos: "object-top",
+      showOnHome: false,
     },
     {
       name: "Hassam Jan",
@@ -522,6 +529,7 @@ export const defaultContent: SiteContent = {
       bio: "With 2+ years of experience, Hassam blends clean code with stunning design. He specializes in building full stack applications while crafting pixel-perfect UI that keeps users engaged and delighted.",
       image: "/hassamjan.png",
       pos: "object-top",
+      showOnHome: false,
     },
     {
       name: "Muneeb",
@@ -529,6 +537,7 @@ export const defaultContent: SiteContent = {
       bio: "A creative UI/UX Designer with 3+ years of experience turning complex ideas into beautiful, intuitive interfaces. Muneeb crafts user-centered designs that not only look great but deliver smooth, engaging experiences across web and mobile platforms.",
       image: "/muneeb.png",
       pos: "object-top",
+      showOnHome: false,
     },
   ],
 

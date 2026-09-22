@@ -139,8 +139,8 @@ export default function ContactSection() {
             {/* Google Map */}
             <div className="rounded-2xl overflow-hidden border border-cyan-500/20 shadow-lg shadow-cyan-500/10 mt-2">
               <iframe
-                title="JB Central Office Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.628!2d103.76!3d1.4655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da0836bfd7a58f%3A0x9b3cda8c69c2a1aa!2sJalan%20Abdullah%20Ibrahim%2C%20Johor%20Bahru%2C%20Johor%2C%20Malaysia!5e0!3m2!1sen!2smy!4v1715000000000"
+                title="Office Location"
+                src={contact.mapEmbed || `https://www.google.com/maps?q=${encodeURIComponent(contact.address)}&output=embed`}
                 width="100%"
                 height="240"
                 style={{ border: 0, display: "block" }}
