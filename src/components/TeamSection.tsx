@@ -7,7 +7,9 @@ import { useContent } from "@/lib/ContentContext";
 export default function TeamSection({ featuredOnly = false }: { featuredOnly?: boolean }) {
   const { t } = useLang();
   const { team } = useContent();
-  const visibleTeam = featuredOnly ? team.filter((m) => m.showOnHome) : team;
+  const featured = team.filter((m) => m.showOnHome);
+  // On the home page show flagged members; if none are flagged yet, show the first person.
+  const visibleTeam = featuredOnly ? (featured.length > 0 ? featured : team.slice(0, 1)) : team;
   return (
     <section id="team" className="relative bg-[#07111f] py-28 px-6 overflow-hidden">
       {/* Background glow */}
