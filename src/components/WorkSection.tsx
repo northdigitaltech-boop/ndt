@@ -69,8 +69,25 @@ export default function WorkSection() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3, delay: i * 0.05 }}
                 whileHover={{ y: -8 }}
-                className={`bg-gradient-to-br ${project.color} backdrop-blur border ${project.border} rounded-2xl p-8 flex flex-col gap-4 shadow-xl hover:shadow-cyan-500/20 transition-all duration-300 group`}
+                className={`bg-gradient-to-br ${project.color} backdrop-blur border ${project.border} rounded-2xl overflow-hidden flex flex-col shadow-xl hover:shadow-cyan-500/20 transition-all duration-300 group`}
               >
+                {/* Website design preview */}
+                {project.image ? (
+                  <div className="relative w-full aspect-video bg-[#0a1628] overflow-hidden border-b border-white/10">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={project.image}
+                      alt={`${project.title} website design`}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                ) : (
+                  <div className="relative w-full aspect-video bg-[#0a1628]/60 flex items-center justify-center border-b border-white/10 text-gray-600 text-sm">
+                    No preview image
+                  </div>
+                )}
+
+                <div className="p-6 flex flex-col gap-4 flex-1">
                 <div className="flex items-center justify-between">
                   <span className="px-3 py-1 bg-cyan-500/20 border border-cyan-500/30 rounded-full text-cyan-400 text-xs font-bold">
                     {project.tag}
@@ -90,6 +107,7 @@ export default function WorkSection() {
                       {t}
                     </span>
                   ))}
+                </div>
                 </div>
               </motion.div>
             ))}
