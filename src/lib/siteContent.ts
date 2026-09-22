@@ -701,10 +701,10 @@ export function mergeContent(overrides: Partial<SiteContent> | null | undefined)
   // Backfill fields added after some content was already saved, so older
   // saved data still works and the admin shows the new controls.
   if (Array.isArray(merged.team)) {
-    merged.team = merged.team.map((m) => ({ showOnHome: false, ...m }));
+    merged.team = merged.team.map((m) => ({ ...m, showOnHome: m.showOnHome ?? false }));
   }
   if (Array.isArray(merged.clients)) {
-    merged.clients = merged.clients.map((c) => ({ link: "", ...c }));
+    merged.clients = merged.clients.map((c) => ({ ...c, link: c.link ?? "" }));
   }
   if (merged.contact && merged.contact.mapEmbed === undefined) {
     merged.contact = { ...merged.contact, mapEmbed: "" };
