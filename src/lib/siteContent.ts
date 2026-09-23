@@ -70,6 +70,7 @@ export interface SiteContent {
     border: string;
     tag: string;
     image: string;
+    link: string;
   }[];
   workStats: { value: string; label: string }[];
   jobs: {
@@ -572,6 +573,7 @@ export const defaultContent: SiteContent = {
       border: "border-cyan-500/30",
       tag: "Web App",
       image: "",
+      link: "",
     },
     {
       title: "ShopNorth E-Store",
@@ -582,6 +584,7 @@ export const defaultContent: SiteContent = {
       border: "border-blue-500/30",
       tag: "E-Commerce",
       image: "",
+      link: "",
     },
     {
       title: "FitTrack Mobile App",
@@ -592,6 +595,7 @@ export const defaultContent: SiteContent = {
       border: "border-indigo-500/30",
       tag: "Mobile",
       image: "",
+      link: "",
     },
     {
       title: "BrandNorth Identity",
@@ -602,6 +606,7 @@ export const defaultContent: SiteContent = {
       border: "border-teal-500/30",
       tag: "Design",
       image: "",
+      link: "",
     },
     {
       title: "MedConnect Platform",
@@ -612,6 +617,7 @@ export const defaultContent: SiteContent = {
       border: "border-sky-500/30",
       tag: "Web App",
       image: "",
+      link: "",
     },
     {
       title: "EduLearn LMS",
@@ -622,6 +628,7 @@ export const defaultContent: SiteContent = {
       border: "border-blue-400/30",
       tag: "Web Platform",
       image: "",
+      link: "",
     },
   ],
 

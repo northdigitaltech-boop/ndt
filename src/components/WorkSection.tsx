@@ -71,16 +71,19 @@ export default function WorkSection() {
                 whileHover={{ y: -8 }}
                 className={`bg-gradient-to-br ${project.color} backdrop-blur border ${project.border} rounded-2xl overflow-hidden flex flex-col shadow-xl hover:shadow-cyan-500/20 transition-all duration-300 group`}
               >
-                {/* Website design preview */}
+                {/* Website design preview (clickable when a link is set) */}
                 {project.image ? (
-                  <div className="relative w-full aspect-video bg-[#0a1628] overflow-hidden border-b border-white/10">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={project.image}
-                      alt={`${project.title} website design`}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
+                  project.link ? (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.title}`} className="relative w-full aspect-video bg-[#0a1628] overflow-hidden border-b border-white/10 block">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={project.image} alt={`${project.title} website design`} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                    </a>
+                  ) : (
+                    <div className="relative w-full aspect-video bg-[#0a1628] overflow-hidden border-b border-white/10">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={project.image} alt={`${project.title} website design`} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                  )
                 ) : (
                   <div className="relative w-full aspect-video bg-[#0a1628]/60 flex items-center justify-center border-b border-white/10 text-gray-600 text-sm">
                     No preview image
@@ -92,7 +95,13 @@ export default function WorkSection() {
                   <span className="px-3 py-1 bg-cyan-500/20 border border-cyan-500/30 rounded-full text-cyan-400 text-xs font-bold">
                     {project.tag}
                   </span>
-                  <OpenInNewIcon className="text-gray-600 group-hover:text-cyan-400 transition-colors" fontSize="small" />
+                  {project.link ? (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.title}`}>
+                      <OpenInNewIcon className="text-gray-500 hover:text-cyan-400 transition-colors" fontSize="small" />
+                    </a>
+                  ) : (
+                    <OpenInNewIcon className="text-gray-600 group-hover:text-cyan-400 transition-colors" fontSize="small" />
+                  )}
                 </div>
                 <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
                   {project.title}
@@ -108,6 +117,16 @@ export default function WorkSection() {
                     </span>
                   ))}
                 </div>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 mt-1 text-cyan-400 text-sm font-semibold hover:gap-2 transition-all"
+                  >
+                    Visit Website <OpenInNewIcon sx={{ fontSize: 14 }} />
+                  </a>
+                )}
                 </div>
               </motion.div>
             ))}
