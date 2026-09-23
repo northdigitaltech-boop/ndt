@@ -152,7 +152,7 @@ function FieldEditor({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange: (v: any) => void;
 }) {
-  if (label === "image" || label === "logo" || label === "photo" || label === "screenshot" || label === "avatar") {
+  if (["image", "logo", "photo", "screenshot", "avatar", "googleIcon"].includes(label)) {
     return <ImageField label={label} value={String(value ?? "")} onChange={onChange} />;
   }
   if (typeof value === "boolean") {

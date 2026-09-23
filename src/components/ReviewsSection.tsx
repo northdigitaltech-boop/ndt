@@ -60,7 +60,17 @@ export default function ReviewsSection() {
                     </div>
                   )}
                   <div className="min-w-0">
-                    <div className="text-white font-bold leading-tight truncate">{r.name}</div>
+                    <div className="flex items-center gap-1.5">
+                      {reviews.googleIcon ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={reviews.googleIcon} alt="Google" className="w-4 h-4 object-contain shrink-0" />
+                      ) : (
+                        <span className="text-[10px] font-bold text-gray-500 border border-gray-600 rounded px-1 shrink-0">
+                          Google Review
+                        </span>
+                      )}
+                      <span className="text-white font-bold leading-tight truncate">{r.name}</span>
+                    </div>
                     <a href={`mailto:${r.email}`} className="text-cyan-400 text-xs hover:underline truncate block">
                       {r.email}
                     </a>

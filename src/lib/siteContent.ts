@@ -66,6 +66,7 @@ export interface SiteContent {
     titleA: string;
     titleHighlight: string;
     desc: string;
+    googleIcon: string; // upload the Google "G" here; shows next to each reviewer's name
     items: { name: string; email: string; rating: string; text: string; logo: string; screenshot: string }[];
   };
   projects: {
@@ -575,6 +576,7 @@ export const defaultContent: SiteContent = {
     titleA: "What Our",
     titleHighlight: "Clients Say",
     desc: "Real feedback from businesses we've worked with.",
+    googleIcon: "",
     items: [
       {
         name: "Ahmad Faiz",
