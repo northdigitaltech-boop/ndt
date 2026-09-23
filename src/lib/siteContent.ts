@@ -61,6 +61,13 @@ export interface SiteContent {
   team: { name: string; role: string; bio: string; image: string; pos: string; showOnHome: boolean }[];
   values: { title: string; desc: string; color: string }[];
   clients: { name: string; image: string; link: string }[];
+  reviews: {
+    badge: string;
+    titleA: string;
+    titleHighlight: string;
+    desc: string;
+    items: { name: string; email: string; rating: string; text: string; logo: string; screenshot: string }[];
+  };
   projects: {
     title: string;
     category: string;
@@ -562,6 +569,39 @@ export const defaultContent: SiteContent = {
     { name: "La Familia Restaurant", image: "/9.png", link: "" },
     { name: "AM Teras Padu Logistik", image: "/10.png", link: "" },
   ],
+
+  reviews: {
+    badge: "Client Reviews",
+    titleA: "What Our",
+    titleHighlight: "Clients Say",
+    desc: "Real feedback from businesses we've worked with.",
+    items: [
+      {
+        name: "Ahmad Faiz",
+        email: "ahmadfaiz@gmail.com",
+        rating: "5",
+        text: "NorthDigital Tech built our restaurant website and handled our social media. Orders went up within weeks. Highly professional team!",
+        logo: "",
+        screenshot: "",
+      },
+      {
+        name: "Sarah Lim",
+        email: "sarahlim.my@gmail.com",
+        rating: "5",
+        text: "Amazing work on our branding and menu design. Fast delivery and great communication throughout. Will work with them again.",
+        logo: "",
+        screenshot: "",
+      },
+      {
+        name: "Rajesh Kumar",
+        email: "rajesh.kumar@gmail.com",
+        rating: "5",
+        text: "They redesigned our e-commerce store and set up our ads. ROI was clear within the first month. Truly recommend NDT.",
+        logo: "",
+        screenshot: "",
+      },
+    ],
+  },
 
   projects: [
     {

@@ -7,6 +7,7 @@ import PackagesSection from "@/components/PackagesSection";
 import AboutSection from "@/components/AboutSection";
 import TeamSection from "@/components/TeamSection";
 import ClientsSection from "@/components/ClientsSection";
+import ReviewsSection from "@/components/ReviewsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -22,6 +23,7 @@ export default function Home() {
       <AboutSection />
       <TeamSection featuredOnly />
       <ClientsSection />
+      <ReviewsSection />
       <ContactSection />
       <Footer />
       <ScrollToTop />

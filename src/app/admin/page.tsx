@@ -19,6 +19,7 @@ const SECTION_LABELS: Record<string, string> = {
   team: "Team Members",
   values: "Company Values",
   clients: "Clients / Logos",
+  reviews: "Reviews",
   projects: "Portfolio Projects",
   workStats: "Work Page Stats",
   jobs: "Job Openings",
@@ -151,7 +152,7 @@ function FieldEditor({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange: (v: any) => void;
 }) {
-  if (label === "image" || label === "logo" || label === "photo") {
+  if (label === "image" || label === "logo" || label === "photo" || label === "screenshot" || label === "avatar") {
     return <ImageField label={label} value={String(value ?? "")} onChange={onChange} />;
   }
   if (typeof value === "boolean") {
